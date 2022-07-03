@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <title>Productos Clemy</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="img/Logo_1.png" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../../../StyleIndex.css" rel="stylesheet" />
+     <link href="../../../sty.css" rel="stylesheet" />
+     
+</head>
+
+<body id="page-top">
+
+<a href="https://api.whatsapp.com/send?phone=+57%203228845851&text=Hola,%20me%20gustaria%20hacer%20un%20pedido" class="floattt" target="_blank">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand"><img src="../../../img/sst.png" style="height: 100px;" /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Acerca de Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contactanos</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/login}"
+                            style="background-color: rgba(0, 0, 0, 0.904); padding: 10px 15px; border-radius: 8px;">INGRESAR</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="container">
+            <div class="masthead-subheading" style="color: rgb(255, 255, 255); ">Los mejores productos echos con el
+                corazon!</div>
+            <div class="masthead-heading text-uppercase" style="text-decoration: overline ;">Productos Clemy</div>
+            <a class="btn btn-info btn-xl text-dark" href="#services">Conocenos</a>
+        </div>
+    </header>
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container-fluid">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Servicios</h2>
+                <h3 class="section-subheading text-muted">Nuestros Servicios</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Ventas Online</h4>
+                    <p class="text-muted">Este sitio web esta en la capacidad de generar ventas y asistar al cliente
+                        durante la misma para tener una buena satisfaccion al cliente.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Excelente comunicacion</h4>
+                    <p class="text-muted">Productos Clemy se enfoca no solo en las ventas, tambien uno de nuestros
+                        objetivos es la satisfaccion del cliente y para eso brindamos maneras faciles y sencillas de
+                        comunicacion directa con nosotros.</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Manejo de datos personales</h4>
+                    <p class="text-muted">Como empresa sabemos que tus datos personales deben estar completamente
+                        seguros y con nosotros lo estan, ya que nuestro manejo de datos personales es discreto y no
+                        necesitamos datos sobre cuentas bancarias y demas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Portfolio Grid-->
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Nuestros Productos</h2>
+                <h3 class="section-subheading text-muted">Productos unicos y de excelente calidad</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 1-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" th:href="@{/login}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="../../../img/cupcakes-g92f7743ab_1280.jpg" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Cupcakes</div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 2-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" th:href="@{/login}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="../../../img/candies-ge7b5d1359_1280.jpg" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Gomas</div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <!-- Portfolio item 3-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" th:href="@{/login}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="../../../img/chocolate-gd29736466_1280.jpg" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Chocolates</div>
+                       
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    <!-- Portfolio item 4-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" th:href="@{/login}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="../../../img/cake-pops-g9d25f536a_1280.jpg" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Bombones</div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                    <!-- Portfolio item 5-->
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" th:href="@{/login}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="../../../img/gummies-g2f9e484f2_1280.jpg" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Gomas con formas</div>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <!-- Portfolio item 6-->
+                    <div class="portfolio-item">
+                       <a class="portfolio-link" th:href="@{/login}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="../../../img/muffins-g625b66374_1280.jpg" alt="..." />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Pastelitos</div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About-->
+    <section class="page-section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">ACERCA DE NOSOTROS</h2>
+                <h3 class="section-subheading text-muted">SST (sistema de soluciones tecnologicas)</h3>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="../../../img/1.jpg"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Mision</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">lograr que cada uno de nuestros clientes tengan acceso a productos y
+                                servicios decalidad con la más avanzada tecnología, queremos ser líder de ventas con
+                                precios accesibles.</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="../../../img/2.jpg"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Vision</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">Ser la mejor organización de desarrollo de software de Colombia, para
+                                que nuestros clientes estén 100% satisfechos, mediante el uso de la innovación y
+                                creatividad, mantenernos siempre actualizados para hacer trabajos de calidad</p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="../../../img/03.jpg"
+                            alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Objetivos empresariales</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">-Ofrecer a los clientes un producto de calidad, y el mejor servicio.</p>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">-Fomentar entre los empleados la cultura del crecimiento, el ahorro y
+                                la educación de manera sostenida.</p>
+                        </div>
+                        <div class="timeline-body">
+                            <p class="text-muted">-Imponer una cultura de honestidad y trabajo entre los empleados. </p>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+    <!-- Team-->
+    <!-- Clients-->
+    </section>
+    <!-- Footer-->
+    <footer class="footer py-4 bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Productos Clemy &copy; Gaes 2</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="https://api.whatsapp.com/send?phone=+57%203228845851&text=Hola,%20me%20gustaria%20hacer%20un%20pedido" aria-label="Twitter"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/productos.clemy.co"
+                        aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
+                <div class="col-lg-4 text-light">
+                    <a class="link-dark text-decoration-none me-3 text-light" href="#!">SST (Sistema de soluciones
+                        tecnologicas)</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="ScripIndex.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+</html>

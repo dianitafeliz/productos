@@ -1,0 +1,78 @@
+@charset "ISO-8859-1";
+
+
+.Fondo {
+    width: 100%;
+    background: #00eeff;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #34b401, #03ff18, #15ff00);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(0, 255, 64, 0.424), rgba(2, 100, 32, 0.445)), url(https://www.mheducation.es/media/wysiwyg/Spain/Newsletter/Post/las-matematicas-lo-explican-todo-600.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.Superior {
+    background: #0c2912;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243e25, #2d632b, #0c2910);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243e26, #2b632e, #0c290e);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.formulario {
+    width: 100%;
+    background: #00eeff;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #01b4ab, #03b8ff, #00ffea);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgba(10, 21, 71, 0.417), rgba(3, 60, 70, 0.65));
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+.rojo {
+    background: #290c0c;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #3e2424, #632b2b, #290c0c);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3e2424, #632b2b, #290c0c);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.azul {
+    background: #0d0c29;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2b243e, #3a2b63, #120c29);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2b243e, #3a2b63, #120c29);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.page-item.active .page-link {
+    background-color: #4e575f ! important;
+    color: floralwhite ! important;
+    border-color: #4e575f ! important;
+}
+
+.page-link {
+    background-color: #212529 ! important;
+    color: #979796 ! important;
+    border: 1px solid #212529 ! important;
+}
+
+.form-select {
+    color: #ffffff;
+    background-color: rgba(33, 37, 41, 0.719) ! important;
+    border: #212529 ! important;
+}
+
+.form-control {
+    color: #ffffff;
+    background-color: rgba(33, 37, 41, 0.719);
+    border: #212529 ! important;
+    text-decoration-color: #ffffff ! important;
+}

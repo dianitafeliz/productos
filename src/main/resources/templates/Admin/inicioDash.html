@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+	<title>Admin</title>
+	<link rel="icon" type="image/x-icon" href="img/Logo_1.png" />
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+		integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet"
+		href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+	<link rel="stylesheet" href="Proveedores.css">
+</head>
+
+<body>
+
+	<input type="checkbox" id="nav-toggle">
+	<div class="sidebar">
+		<div class="sidebar-brand">
+
+			<img src="../../../img/Logo_1.png">
+		</div>
+		<!--Secciones-del-tablero-->
+		<div class="sidebar-menu">
+			<ul>
+				<li><a th:href="@{/indexDash}" class="active"><span class="las la-home"></span> <span>Inicio</span></a>
+				</li>
+				<li><a th:href="@{/usuarios}"><span class="las la-user"></span>
+						<span>Usuarios</span></a></li>
+				<li><a th:href="@{/listaProvedores}"><span class="las la-handshake"></span> <span>Provedores</span></a>
+				</li>
+				<li><a th:href="@{/productos}"><span class="las la-pen-alt"></span>
+						<span>inventario</span></a></li>
+				<li><a th:href="@{/envios}"><span class="las la-shipping-fast"></span> <span>Envios</span></a></li>
+				<li><a th:href="@{/ventas}"><span
+						class="las la-barcode"></span> <span>Ventas</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="main-content">
+		<header>
+			<h2>
+				<label for="nav-toggle"> <span class="las la-bars"></span>
+				</label> inicio <a th:href="ListaCategorias"
+					style="text-decoration: none; font-size: 25px; color: #A6A1A0;">Agregar Categorias</a>
+			</h2>
+
+			<div class="user-wrapper">
+				<img src="../../../img/admin3.png" width="40px" height="40px" alt="">
+				<div>
+					<h4>Administrador</h4>
+					<a th:href="@{/login?logout}"
+						style="text-decoration: none; background: #D3D7E9; padding: 5px 10px; border-radius: 8px; margin-left: 35px">Cerrar
+						Sesion</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<div class="cards">
+
+				<div class="card-single">
+					<div>
+						<h1>5</h1>
+						<span>Agregar Roles</span>
+					</div>
+					<div>
+						<span class="las la-users"></span>
+					</div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>12</h1>
+						<span><a th:href="ListaCategorias">Agregar Categorias</a></span>
+					</div>
+					<div>
+						<span class="las la-clipboard-check"></span>
+					</div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>25</h1>
+						<span>Agregar Unidad Medida</span>
+					</div>
+					<div>
+						<span class="las la-dolly"></span>
+					</div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>2</h1>
+						<span>Agregar Estados De Compra</span>
+					</div>
+					<div>
+						<span class="las la-box"></span>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h1 align="center">REPORTES ESTADISTICOS</h1><br>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">REPORTES</th>
+							<th scope="col">BOTONES</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+
+							<td>REPORTE DE VENTAS</td>
+							<td><button class="btn btn-warning " data-toggle="modal" data-target="#modal">VER
+									REPORTE</button></td>
+
+						</tr>
+						<tr>
+
+							<td>REPORTE POR PRODUCTOS</td>
+							<td><button class="btn btn-warning " data-toggle="modal" data-target="#modalProducto">VER
+									REPORTE</button></td>
+
+						</tr>
+						<tr>
+
+							<td>REPORTE DE COMPRAS</td>
+							<td><button class="btn btn-warning " data-toggle="modal" data-target="#modalCompras">VER
+									REPORTE</button></td>
+
+						</tr>
+						
+						<tr>
+
+							<td>REPORTE DE VENDEDORES</td>
+							<td><button class="btn btn-warning " data-toggle="modal" data-target="#modalVendedores">VER
+									REPORTE</button></td>
+
+						</tr>
+
+					</tbody>
+				</table>
+
+
+<!--------------------------------------MODAL VENTAS----------------------------------------------->
+				<div class="modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" id="modal"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Reporte de Ventas</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="" method="post" class="form-group border p-2" width="200%" align="center">
+									<label for="fecha1">Fecha de inicio: </label>
+									<input
+										class="border border-gray-200 rounded-md w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"
+										type="Date" placeholder="Fecha de inicio" name="fecha3" id="fecha3"><br>
+									<label for="fecha2">Fecha final: </label>
+									<input
+										class="border border-gray-200 rounded-md  w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"
+										type="Date" placeholder="Fecha Final" name="fecha4" id="fecha4"><br>
+									<select id="tipo1"
+										class="border border-gray-200 rounded-md w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white">
+										<option name="tip0" value="EXCEL">EXCEL</option>
+										<option name="tip0" value="PDF">PDF</option>
+
+
+									</select>
+
+
+								</form>
+
+								<div class="modal-footer">
+									<button class="btn btn-warning" type="button"
+										onclick="reporte2()">Descargar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+
+
+
+				</div>
+				
+	<!-------------------------------------- FIN DE MODAL----------------------------------------------->
+	
+	<!--------------------------------------MODAL PRODUCTO----------------------------------------------->
+				<div class="modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" id="modalProducto"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Reporte de Ventas por Producto</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="" method="post" class="form-group border p-2" width="200%" align="center">
+							<label for="fecha1">Fecha de inicio</label>
+							<input
+								class="border border-gray-200 rounded-md w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"
+								type="Date" placeholder="Fecha de inicio" name="fecha1" id="fecha1"><br>
+							<label for="fecha2">Fecha final</label>
+							<input
+								class="border border-gray-200 rounded-md  w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"
+								type="Date" placeholder="Fecha Final" name="fecha2" id="fecha2"><br>
+							<select id="tip0"
+								class="border border-gray-200 rounded-md w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white">
+								<option name="tip0" value="EXCEL">EXCEL</option>
+								<option name="tip0" value="PDF">PDF</option>
+
+							</select>
+					
+						</form>
+
+								<div class="modal-footer">
+									<button class="btn btn-warning" type="button" onclick="reporte()">Descargar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+	<!-------------------------------------- FIN DE MODAL----------------------------------------------->				
+			
+<!--------------------------------------MODAL COMPRAS----------------------------------------------->
+				<div class="modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" id="modalCompras"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Reporte de Compras</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="" method="post" class="form-group border p-2" width="200%" align="center">
+							<label for="fecha5">Fecha de inicio</label>
+							<input
+								class="border border-gray-200 rounded-md w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"
+								type="Date" placeholder="Fecha de inicio" name="fecha5" id="fecha5"><br>
+							<label for="fecha6">Fecha final</label>
+							<input
+								class="border border-gray-200 rounded-md  w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"
+								type="Date" placeholder="Fecha Final" name="fecha6" id="fecha6"><br>
+							<select id="tipo2"
+								class="border border-gray-200 rounded-md w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white">
+								<option name="tip0" value="EXCEL">EXCEL</option>
+								<option name="tip0" value="PDF">PDF</option>
+
+							</select>
+					
+						</form>
+
+								<div class="modal-footer">
+									<button class="btn btn-warning" type="button" onclick="reporte3()">Descargar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+	<!-------------------------------------- FIN DE MODAL----------------------------------------------->	
+	<!--------------------------------------MODAL VENDEDORES----------------------------------------------->
+				<div class="modal" tabindex="-1" role="dialog" aria-labelledby="modal-title" id="modalVendedores"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Reporte de Vendedores</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form action="" method="post" class="form-group border p-2" width="200%" align="center">
+							<label for="fecha7">Fecha de inicio</label>
+							<input
+								class="border border-gray-200 rounded-md w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"
+								type="Date" placeholder="Fecha de inicio" name="fecha7" id="fecha7"><br>
+							<label for="fecha8">Fecha final</label>
+							<input
+								class="border border-gray-200 rounded-md  w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white"
+								type="Date" placeholder="Fecha Final" name="fecha8" id="fecha8"><br>
+							<select id="tipo3"
+								class="border border-gray-200 rounded-md w-full text-lg placeholder-gray-900 p-2 my-2 focus:bg-white">
+								<option name="tipo3" value="EXCEL">EXCEL</option>
+								<option name="tipo3" value="PDF">PDF</option>
+
+							</select>
+					
+						</form>
+
+								<div class="modal-footer">
+									<button class="btn btn-warning" type="button" onclick="reporte4()">Descargar</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+	<!-------------------------------------- FIN DE MODAL----------------------------------------------->
+	
+				<div class="graficas">
+					<h1 class="text-center">Ventas mensuales y anuales</h1>
+					<hr>
+					<div class="row">
+						<div class="col-md-6">
+							<h1>Ventas Mensuales</h1>
+							<hr>
+							<canvas class="text-center" id="myChart" width="400" height="400"></canvas>
+						</div>
+						<div class="col-md-6">
+							<h1>ventas Anuales</h1>
+							<hr>
+							<canvas id="ventas" width="400" height="400"></canvas>
+						</div>
+					</div>
+
+				</div>
+		</main>
+	</div>
+
+
+
+
+	</form>
+	</div>
+
+	<script>
+		var ctx = document.getElementById('myChart').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo',
+					'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre',
+					'Noviembre', 'Diciembre'],
+				datasets: [{
+					label: 'ventas totales mensuales',
+					data: [12, 19, 3, 5, 2, 3, 5, 6, 5, 10, 20, 40],
+					backgroundColor: ['rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)',
+
+					],
+					borderColor: ['rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				}
+			}
+		});
+	</script>
+	<script>
+		var ctx = document.getElementById('ventas').getContext('2d');
+		var myChart = new Chart(ctx, {
+			type: 'doughnut',
+			data: {
+				labels: ['2015', '2016', '2017', '2018', '2019', '2020',
+					'2021'],
+				datasets: [{
+					label: 'ventas totales mensuales',
+					data: [12, 19, 15, 5, 10, 20, 10],
+					backgroundColor: ['rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)',
+
+					],
+					borderColor: ['rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)', 'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				}
+			}
+		});
+	</script>
+
+	<script src="funciones.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+		integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+		crossorigin="anonymous"></script>
+
+</body>
+
+</html>

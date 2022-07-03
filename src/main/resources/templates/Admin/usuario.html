@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Usuarios Dashboard</title>
+<link rel="icon" type="image/x-icon" href="img/Logo_1.png" />
+<link rel="stylesheet"
+
+	href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<link rel="stylesheet" href="../../../Proveedores.css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+<link
+	href="https://kit-pro.fontawesome.com/releases/v5.15.4/css/pro.min.css"
+	rel="stylesheet">
+<link href="datatables/datatables.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">    
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+</head>
+
+<body>
+<input type="checkbox" id="nav-toggle">
+	<div class="sidebar">
+		<div class="sidebar-brand">
+
+			<img src="../../../img/Logo_1.png">
+
+		</div>
+		<!--Secciones-del-tablero-->
+		<div class="sidebar-menu">
+			<ul>
+				<li><a th:href="@{/indexDash}"><span class="las la-home"></span>
+						<span>Inicio</span></a></li>
+				<li><a th:href="@{/usuarios}" class="active"><span
+						class="las la-user"></span> <span>Usuarios</span></a></li>
+				<li><a th:href="@{/listaProvedores}"><span
+						class="las la-handshake"></span> <span>Provedores</span></a></li>
+				<li><a th:href="@{/productos}"><span class="las la-pen-alt"></span>
+						<span>inventario</span></a></li>
+				<li><a th:href="@{/envios}"><span
+						class="las la-shipping-fast"></span> <span>Envios</span></a></li>
+							<li><a th:href="@{/ventas}"><span
+						class="las la-barcode"></span> <span>Ventas</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="main-content">
+		<header>
+			<h2>
+				<label for="nav-toggle"> <span class="las la-bars"></span>
+				</label> Inicio
+			</h2>
+
+
+			<div class="user-wrapper">
+				<img src="../../../img/admin3.png" width="40px" height="40px" alt="">
+				<div>
+					<h4>Administrador</h4>
+					 <a th:href="@{/login?logout}" style="text-decoration: none; background:#D3D7E9; padding: 5px 10px; border-radius: 8px; margin-left: 35px ">Cerrar Sesion</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<div class="cards">
+
+				<div class="card-single">
+					<div>
+						<h1>5</h1>
+						<span>Nuevos Usuarios</span>
+					</div>
+					<div>
+						<span class="las la-users"></span>
+					</div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>12</h1>
+						<span>Productos Vendidos</span>
+					</div>
+					<div>
+						<span class="las la-clipboard-check"></span>
+					</div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>25</h1>
+						<span>Productos por entregrar</span>
+					</div>
+					<div>
+						<span class="las la-dolly"></span>
+					</div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>2</h1>
+						<span>Productos entregados</span>
+					</div>
+					<div>
+						<span class="las la-box"></span>
+					</div>
+				</div>
+			</div>
+			<!--Tabla-->
+			<br>
+			<h1 style="text-align: center;">
+				Nuestros Usuarios
+			</h1>
+			<br>
+			<div class="email">
+				<a th:href="@{/contact}" style="padding: 10px 30px; background: #D3D7E9;border-radius: 8px; margin-bottom: 20px">Enviar Correos Masivos </a>
+				<a th:href="@{/contacts}" style="padding: 10px 30px; background: #D3D7E9;border-radius: 8px; margin-bottom: 20px; margin-left: 15px">Correos de Ingreso </a>
+			</div>
+			
+			
+			<div class="card">
+
+
+
+				<div class="container">
+					<div class="row-15 mt-5 ml-auto">
+						<div class="col-15">
+							<div class="tabla">
+
+
+								 <table id="myTable" class="table table-striped" style="width:100%">
+								
+									<thead>
+										<tr>
+											<th colspan="7" style="text-align: center; font-size: 20px">Usuarios<a
+												Class="btn btn-primary" th:href="@{/usuarios/nuevo}">Agregar</a>
+											</th>
+										</tr>
+										<tr>
+											<th>IdUsuario</th>
+											<th>Nombre</th>
+											<th>Apellido</th>
+											<th>Correo</th>
+											<th>Contraseña</th>
+											<th>telefono</th>
+											<th>direccion</th>
+											<th>ciudad</th>
+										
+											<th>roles</th>
+											<th>Opciones</th>
+										</tr>
+									</thead>
+									<tbody style="color: #fff">
+
+										<tr th:each="usuarios:${listarUsuarios}">
+											<td th:text="${usuarios.IdUsuario}"></td>
+											<td th:text="${usuarios.nombre}"></td>
+											<td th:text="${usuarios.apellido}"></td>
+											<td th:text="${usuarios.email}"></td>
+											<td th:text="${usuarios.password}"></td> 
+											<td th:text="${usuarios.telefono}"></td>
+											<td th:text="${usuarios.direccion}"></td>
+											<td th:text="${usuarios.ciudad}"></td>
+											
+											
+											<td th:text="${usuarios.roles}"></td>
+									
+											<td><a th:href="@{'/usuarios/editar'+'/'+ ${usuarios.IdUsuario}}" Class="btn btn-info">Editar</a> &nbsp;&nbsp;
+											<a Class="btn btn-danger" th:onclick="eliminarUsuario([[${usuarios.IdUsuario}]])">Eliminar</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+	</div>
+
+	</div>
+	</main>
+
+	</div>
+
+
+	</script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+		integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="datatables/datatables.min.js"></script>
+	<script src="datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>
+	<script src="datatables/JSZip-2.5.0/jszip.min.js"></script>
+	<script src="datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
+	<script src="datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+	<script src="datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
+   <script src="funciones.js"></script>
+	<script src="js/inventario.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+		
+		 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+  <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+
+<!-- Para los estilos en Excel     -->
+<script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.1.1/js/buttons.html5.styles.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/datatables-buttons-excel-styles@1.1.1/js/buttons.html5.styles.templates.min.js"></script>
+<script>
+$(document).ready(function () {
+    $("#myTable").DataTable({
+
+        dom: "Bfrtip",
+      
+        
+        buttons:{
+            dom: {
+                button: {
+                	
+                    className: 'btn',
+                    className: 'btn'
+                }
+            },
+            buttons: [
+      
+  
+               {
+            	extend:    'excelHtml5',
+            	text:      '<i class="fas fa-file-excel"></i> ',
+            	titleAttr: 'Exportar a Excel',
+            	className: 'btn btn-success'
+    			}, 
+    			{
+    				extend: 'pdfHtml5',
+    			text:      '<i class="fas fa-file-pdf"></i> ',
+    			titleAttr: 'Exportar a PDF',
+				className: 'btn btn-danger'
+    			},
+    			{
+    				extend: 'print',
+    				text:      '<i class="fa fa-print"></i> ',
+    				titleAttr: 'Imprimir',
+    				className: 'btn btn-info'
+    	        }
+    			
+    	        
+    	        
+            ]            
+            
+        }            
+    
+    });
+    
+});
+    </script>
+</body>
+
+</html>

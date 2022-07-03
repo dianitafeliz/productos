@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http.thymeleaf.org">
+
+<head>
+<link rel="icon" type="image/x-icon" href="img/Logo_1.png" />
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Admin</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<link rel="stylesheet" href="../../../Proveedores.css">
+</head>
+
+
+<body>
+	<input type="checkbox" id="nav-toggle">
+	<div class="sidebar">
+		<div class="sidebar-brand">
+
+			<img src="../../../img/Logo_1.png">
+
+		</div>
+		<!--Secciones-del-tablero-->
+		<div class="sidebar-menu">
+			<ul>
+				<li><a th:href="@{/loginDashboard}"><span class="las la-home"></span>
+						<span>Inicio</span></a></li>
+				<li><a th:href="@{/usuarios}"><span class="las la-user"></span>
+						<span>Usuarios</span></a></li>
+				<li><a th:href="@{/listaProvedores}"><span
+						class="las la-handshake"></span> <span>Provedores</span></a></li>
+				<li><a th:href="@{/productos}"><span class="las la-pen-alt"></span>
+						<span>inventario</span></a></li>
+				<li><a th:href="@{/envios}" class="active"><span class="las la-shipping-fast"></span>
+						<span>Envios</span></a></li>
+							<li><a th:href="@{/ventas}"><span
+						class="las la-barcode"></span> <span>Ventas</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="main-content">
+		<header>
+			<h2>
+				<label for="nav-toggle"> <span class="las la-bars"></span>
+				</label> Envios
+			</h2>
+
+			<div class="user-wrapper">
+				<img src="../../../img/admin3.png" width="40px" height="40px" alt="">
+				<div>
+					<h4>Administrador</h4>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Mi perfil</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="loginadmin.jsp">Cerrar sesi�n</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main>
+
+			<div class="cards">
+
+				<div class="card-single">
+					<div>
+						<h1>5</h1>
+						<span>Nuevos Usuarios</span>
+					</div>
+					<div>
+						<span class="las la-users"></span>
+					</div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>12</h1>
+						<span>Productos Vendidos</span>
+					</div>
+					<div>
+						<span class="las la-clipboard-check"></span>
+					</div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>25</h1>
+						<span>Productos por entregrar</span>
+					</div>
+					<div>
+						<span class="las la-dolly"></span>
+					</div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>2</h1>
+						<span>Productos entregados</span>
+					</div>
+					<div>
+						<span class="las la-box"></span>
+					</div>
+				</div>
+			</div>
+			<!--Tabla proveedores-->
+
+			<h3 th:if="${envios.IdEnvio == null }" style="text-align: center; font-weight: bold;">Agregar Producto<a Class="btn btn-primary" th:href="@{/envios}">Regresar</a></h3>
+			<h3  th:unless="${envios.IdEnvio == null }" style="text-align: center; font-weight: bold;">Editar Producto<a Class="btn btn-primary" th:href="@{/envios}">Regresar</a></h3>
+			
+			
+			<form th:action="@{/envios/guardar}"
+				th:object="${envios}" method="POST">
+
+				<div class="mb-3">
+					<input type="text" th:field="*{IdEnvio}" hidden="true"/></div>
+					
+					
+					<label class="col-form label col-sm-4">Estado de Compra: </label>
+					<div class="col-sm-8 text-left">
+						<th:block th:each="estadocompra : ${listaestado}">
+							<div>
+								<input type="checkbox" th:field="*{estadocompra}"
+									th:text="${estadocompra.NombreEstado}" th:value="${estadocompra.IdEstado}" class="m-2">
+							</div>
+						</th:block>
+					</div>
+					
+					     <label class="col-form label col-sm-4">ventas: </label>
+				<select th:field="*{ventas}" class="form-control" require>
+                      <th:block th:each="ventas: ${listaVentas}">
+                      <option th:text="${ventas.IdVenta}" th:value="${ventas.IdVenta}"></option>
+                      </th:block>
+                       </select>
+                  <div class="mb-3">
+						<label for="exampleFormControlInput1" class="form-label">Direccion</label>
+						<input type="text" class="form-control"
+							id="exampleFormControlInput1"
+							th:field="*{direccion}">
+							</div>
+							  <div class="mb-3">
+						<label for="exampleFormControlInput1" class="form-label">Detalles del envio</label>
+						<input type="text" class="form-control"
+							id="exampleFormControlInput1"
+							th:field="*{detalle}">
+							</div>
+					
+			
+					
+
+				<button type="submit" class="btn btn-primary">Generar</button>
+			</form>
+	</div>
+
+
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+		integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+		integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+		crossorigin="anonymous"></script>
+</body>
+</html>
